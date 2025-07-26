@@ -4,7 +4,7 @@ import Editor from "@monaco-editor/react"
 import * as Y from "yjs"
 import { WebrtcProvider } from "y-webrtc"
 import {MonacoBinding} from "y-monaco"
-// import {webRTC}
+
 
 function App() {
   const editorRef = useRef(null);
@@ -23,17 +23,12 @@ function App() {
       const provider = new WebrtcProvider( 'test-room', doc,{
           signaling: ['wss://signaling.yjs.dev/',
     'wss://y-webrtc-eu.fly.dev/',
-    'wss://y-webrtc-us.fly.dev/'], // Your local or hosted signaling server
+    'wss://y-webrtc-us.fly.dev/'], 
     })
       const type = doc.getText("monaco")
       const binding = new MonacoBinding(type, editorRef.current.getModel(), new Set([editorRef.current]), provider.awareness)
       
     }
-  
-
-  //  function showValue() {
-  //   alert(editorRef.current.getValue());
-  // }
     
   function handleEditorChange(value, event) {
     console.log("current model value", value)

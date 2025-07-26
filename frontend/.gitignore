@@ -26,5 +26,5 @@ dist-ssr
 eslint.config.js
 package-lock.json
 
-vite.config.js
+# vite.config.js
 README.node_modules
