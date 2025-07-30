@@ -21,11 +21,11 @@ function App() {
       const doc = new Y.Doc()
 
       const provider = new WebrtcProvider( 'test-room', doc,{
-          signaling: ['wss://signaling.yjs.dev/',
-    'wss://y-webrtc-eu.fly.dev/',
-    'wss://y-webrtc-us.fly.dev/'], 
-    })
-      const type = doc.getText("monaco")
+          signaling: ["ws://localhost:4444"]
+          
+      })
+
+      const type = doc.getText("shared-text")
       const binding = new MonacoBinding(type, editorRef.current.getModel(), new Set([editorRef.current]), provider.awareness)
       
     }
