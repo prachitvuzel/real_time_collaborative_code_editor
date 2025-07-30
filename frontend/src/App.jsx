@@ -3,10 +3,17 @@ import './App.css'
 import Editor from "@monaco-editor/react"
 import * as Y from "yjs"
 import { WebrtcProvider } from "y-webrtc"
-import {MonacoBinding} from "y-monaco"
+import { MonacoBinding } from "y-monaco"
+const signalingServer = import.meta.env.VITE_SIGNALING_SERVER
+const roomId = import.meta.env.VITE_ROOM_ID
+
+
+
 
 
 function App() {
+
+
   const editorRef = useRef(null);
   
   function handleEditorChange(value, event) {
@@ -20,8 +27,8 @@ function App() {
         
       const doc = new Y.Doc()
 
-      const provider = new WebrtcProvider( 'test-room', doc,{
-          signaling: ["ws://localhost:4444"]
+      const provider = new WebrtcProvider(roomId, doc,{
+        signaling: [signalingServer]
           
       })
 
